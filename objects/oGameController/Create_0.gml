@@ -6,14 +6,10 @@
 #macro BBOXTOP display_get_gui_height()*0.7
 #macro BBOXBOT display_get_gui_height()*0.9
 #macro BORDER 16
-
-// Initialize dialogue variables
 characters=0;
 charsdrawnperframe=1;
 global.dialogue=false;
 global.choice=0;
-
-// Variables modified by setDialogue script
 global.icon=noone;
 global.textlist=ds_list_create();
 global.choicelist=ds_list_create();

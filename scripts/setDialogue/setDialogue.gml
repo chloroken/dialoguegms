@@ -1,11 +1,8 @@
-/// @function setDialogue(type);
-/// @arg type Set 'TEXT' or 'CHOICES'?
-function setDialogue(type){
-	#macro TEXT "text"
-	#macro CHOICES "choices"
-	if type=TEXT var list=global.textlist;
-	else if type=CHOICES var list=global.choicelist;
-	else exit;
-	for (var i=1;i<argument_count;i++) ds_list_add(list,argument[i]);
+/// @function setDialogue(sprite,choice1,choice2,choice3,choice4);
+/// @arg sprite
+function setDialogue(sprite){
+	global.icon=sprite;
+	for (var i=1;i<5;i++) ds_list_add(global.choicelist,argument[i]);
+	for (var i=5;i<argument_count;i++) ds_list_add(global.textlist,argument[i]);
 	global.dialogue=true;
 }

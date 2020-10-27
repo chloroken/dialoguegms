@@ -1,11 +1,10 @@
-#region global.dialogue system
-if global.dialogue{
 
+if global.dialogue{
 	global.choice=0;
-		
-	// Get 'whole' string from 'global.textlist' list
-	var whole=ds_list_find_value(global.textlist,0);
-	var stringlength=string_length(whole);			
+	
+	// Get current dialogue string from 'textlist'
+	var wholestring=ds_list_find_value(global.textlist,0);
+	var stringlength=string_length(wholestring);			
 		
 	// Get mouse coordinates
 	var mousex=device_mouse_x_to_gui(0);
@@ -28,9 +27,7 @@ if global.dialogue{
 					// If mouse is over a choice
 					if mousey>BBOXTOP+BORDER&&mousey<BBOXTOP+(i+1)/choicecount*(BBOXBOT-BBOXTOP){
 						
-						// Get that choice's string
-						var choice=ds_list_find_value(global.choicelist,i);
-							
+						// Set global.choice to communicate with calling object
 						global.choice=i+1;
 						
 						// Output and cleanup
@@ -38,14 +35,13 @@ if global.dialogue{
 						global.icon=noone;
 						ds_list_clear(global.textlist);
 						ds_list_clear(global.choicelist);
-						
 						break;
 					}
 				}
 			}
 		}
 		
-		// If still rolling text, instantly finish it
+		// If text is still rolling out, instantly finish it
 		if characters<stringlength characters=stringlength;
 		
 		// If text is finished rolling out, go to next dialogue page
@@ -59,7 +55,6 @@ if global.dialogue{
 	if characters<stringlength characters=characters+charsdrawnperframe;
 	
 	// Chop global.dialogue off at 'characters'
-	chopped=string_copy(whole,1,characters);
+	chopped=string_copy(wholestring,1,characters);
 }
 else characters=0;
-#endregion
