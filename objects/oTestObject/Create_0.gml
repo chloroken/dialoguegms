@@ -1,0 +1,1 @@
+confettiready=false;
