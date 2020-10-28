@@ -15,7 +15,7 @@ if dialogue{
 		var textcount=ds_list_size(textlist);
 		if mousex>BBOXCHOICE&&choicecount&&textcount==1{
 			for (var i=0;i<choicecount;i++){
-				if mousey>BBOXTOP+BORDER&&mousey<BBOXTOP+(i+1)/choicecount*(BBOXBOT-BBOXTOP){
+				if mousey>BBOXTOP+PADDING&&mousey<BBOXTOP+(i+1)/choicecount*(BBOXBOT-BBOXTOP){
 					choice=i;
 					dialogue=false;
 					portrait=noone;
