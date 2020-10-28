@@ -13,3 +13,5 @@ choice=noone;
 portrait=noone;
 textlist=ds_list_create();
 choicelist=ds_list_create();
+
+/* DialogueGMS credit to Chloroken aka Ken Koepplinger */
