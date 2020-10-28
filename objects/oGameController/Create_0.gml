@@ -8,9 +8,8 @@
 #macro BORDER 16
 characters=0;
 charsdrawnperframe=.5;
-global.dialogue=false;
-//maxchoices=4;
-global.choice=0;
-global.icon=noone;
-global.textlist=ds_list_create();
-global.choicelist=ds_list_create();
+dialogue=false;
+choice=noone;
+portrait=noone;
+textlist=ds_list_create();
+choicelist=ds_list_create();

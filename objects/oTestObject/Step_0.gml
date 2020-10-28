@@ -1,18 +1,19 @@
 // Deliver confetti (demonstrates ability to communicate choice back to calling object)
-if confettiready&&global.choice{
+if confettiready&&oGameController.choice!=noone{
 	confettiready=false;
 	for (var i=0;i<1000;i++){
 		var confetti=instance_create_depth(x,y,0,oConfetti);
-		with confetti{image_index=global.choice-1;}
+		with confetti{image_index=oGameController.choice;}
 	}
 }
 
 // This object's dialogue sent via script 'setDialogue'
 var mx=device_mouse_x_to_gui(0),my=device_mouse_y_to_gui(0);
-if point_in_circle(mx,my,x,y,64)&&mouse_check_button_pressed(PROCEED){	
+if !oGameController.dialogue&&point_in_circle(mx,my,x,y,64)&&mouse_check_button_pressed(PROCEED){	
 	confettiready=true;
 	setDialogue(
 		sprite_index,
+		4,
 		"Blue",
 		"Red",
 		"Green",
