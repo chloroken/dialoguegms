@@ -13,30 +13,26 @@ if global.dialogue{
 	// If player clicks in dialogue area
 	if mouse_check_button_pressed(PROCEED)&&mousey>BBOXTOP{
 		
-		// If choices exist and only one dialogue page remains
-		if ds_list_size(global.choicelist)&&ds_list_size(global.textlist)==1{
+		// If mouse is over choices, choices exist, only one dialogue page remains
+		var choicecount=ds_list_size(global.choicelist);
+		var textcount=ds_list_size(global.textlist);
+		if mousex>BBOXCHOICE&&choicecount&&textcount==1{
 				
-			// If mouse is in the choice box
-			if mousex>BBOXCHOICE{	
-
-				var choicecount=ds_list_size(global.choicelist);
-				
-				// Look through 'global.choicelist'
-				for (var i=0;i<choicecount;i++){
+			// Look through 'global.choicelist'
+			for (var i=0;i<choicecount;i++){
 					
-					// If mouse is over a choice
-					if mousey>BBOXTOP+BORDER&&mousey<BBOXTOP+(i+1)/choicecount*(BBOXBOT-BBOXTOP){
+				// If mouse is over a choice
+				if mousey>BBOXTOP+BORDER&&mousey<BBOXTOP+(i+1)/choicecount*(BBOXBOT-BBOXTOP){
 						
-						// Set global.choice to communicate with calling object
-						global.choice=i+1;
+					// Set global.choice to communicate with calling object
+					global.choice=i+1;
 						
-						// Output and cleanup
-						global.dialogue=false;
-						global.icon=noone;
-						ds_list_clear(global.textlist);
-						ds_list_clear(global.choicelist);
-						break;
-					}
+					// Output and cleanup
+					global.dialogue=false;
+					global.icon=noone;
+					ds_list_clear(global.textlist);
+					ds_list_clear(global.choicelist);
+					break;
 				}
 			}
 		}
@@ -50,7 +46,7 @@ if global.dialogue{
 			characters=0;
 		}
 	}
-	
+		
 	// Scroll out characters in current global.dialogue page
 	if characters<stringlength characters=characters+charsdrawnperframe;
 	

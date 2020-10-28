@@ -7,8 +7,9 @@
 #macro BBOXBOT display_get_gui_height()*0.9
 #macro BORDER 16
 characters=0;
-charsdrawnperframe=1;
+charsdrawnperframe=.5;
 global.dialogue=false;
+//maxchoices=4;
 global.choice=0;
 global.icon=noone;
 global.textlist=ds_list_create();
